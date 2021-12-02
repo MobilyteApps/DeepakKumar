@@ -44,12 +44,10 @@ class _FileView extends State<FileView>  {
       ),
       body: Stack(
         children: <Widget>[
-
           ElevatedButton(
               onPressed: (){
                 openFile();
               },
-
               child: Text(
                 "Click here to open"
               )
