@@ -34,11 +34,14 @@ class _FileView extends State<FileView>  {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Text("Document"),
         actions: <Widget>[
+
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () {},
+
           ),
         ],
       ),
@@ -55,6 +58,7 @@ class _FileView extends State<FileView>  {
 
 
         ],
+
       ),
 
     );
