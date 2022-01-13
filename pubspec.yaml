@@ -40,7 +40,7 @@ dependencies:
   file_picker: ^4.2.6
   open_file: ^3.2.1
   flutter_pdfview: ^1.2.1
-  flutter_filereader: ^3.0.0
+
 
 
 

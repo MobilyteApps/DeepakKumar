@@ -44,8 +44,11 @@ class _Videoplaylist extends State<Videoplaylist> {
             .getDownloadURL()
             .then((value) {
           print('url>>>> $value');
-          video_view.add(value);
-          setState(() {});
+
+          setState(() {
+            video_view.add(value);
+          });
+
         });
       });
 
@@ -68,7 +71,7 @@ class _Videoplaylist extends State<Videoplaylist> {
                 crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 8),
             itemCount: video_view.length,
             itemBuilder: (BuildContext context, int index) {
-              if (video_view[index].isEmpty) {
+              if (video_view.length == 0) {
                 return CircularProgressIndicator();
               } else
                 return Container(

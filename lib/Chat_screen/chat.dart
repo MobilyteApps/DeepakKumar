@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:singup_page/Message/buildItem.dart';
 
-import 'package:singup_page/Message/type_message.dart';
 import 'package:path/path.dart';
 
 import '../file_picker/image_picker_screen.dart';
@@ -152,7 +151,7 @@ class _ChatState extends State<Chat> {
 
                         },
 
-                        reverse: true,
+                       reverse: true,
                         //   controller: listScrollController,
                       );
                     } else {

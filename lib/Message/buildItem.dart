@@ -14,7 +14,7 @@ Widget buildItem(int index, var uid, var getdoc) {
 
   if (getdoc['senderId'] == uid) {
     // Right (my message)
-    return Row(
+    return Column(
       children: <Widget>[
         // Text
         Container(
@@ -24,31 +24,36 @@ Widget buildItem(int index, var uid, var getdoc) {
                 elevation: 0,
                 padding: const BubbleEdges.all(10.0),
                 nip: BubbleNip.rightTop,
+                alignment: Alignment.topRight,
                 child: Text("${getdoc['message']}", style: TextStyle(color: Colors.black))),
-            width: 200)
+           ),
       ],
-      mainAxisAlignment: MainAxisAlignment.end,
+    crossAxisAlignment: CrossAxisAlignment.end,
     );
   } else {
     // Left (peer message)
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(children: <Widget>[
+
             Container(
               child: Bubble(
                   color: Colors.purple,
                   elevation: 0,
                   padding: const BubbleEdges.all(10.0),
                   nip: BubbleNip.leftTop,
+                  alignment: Alignment.topLeft,
                   child: Text("${getdoc['message']}", style: TextStyle(color: Colors.black))),
               width: 200.0,
               margin: const EdgeInsets.only(left: 10.0),
             )
           ])
         ],
-        crossAxisAlignment: CrossAxisAlignment.start,
+
+
       ),
     );
   }

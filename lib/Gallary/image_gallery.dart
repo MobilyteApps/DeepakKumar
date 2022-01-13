@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ImagePreview extends StatefulWidget {
   ImagePreview({
@@ -22,6 +23,7 @@ class _ImagePreview extends State<ImagePreview> {
   String image = '';
   List<String> image_view = [];
 
+   @override
   void initState() {
     super.initState();
     getFirebaseImageFolder();
@@ -39,13 +41,22 @@ class _ImagePreview extends State<ImagePreview> {
             .then((value) {
           print('url>>>> $value');
           image_view.add(value);
-          setState(() {});
+
+
+          setState(() {
+
+          });
+
         });
       });
 
+
       print('Found file: ${result.items[0].fullPath.split('/')[1]}');
       print("result is $result");
-    });
+    }
+
+    );
+
   }
 
   @override
@@ -62,8 +73,12 @@ class _ImagePreview extends State<ImagePreview> {
                 crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 8),
             itemCount: image_view.length,
             itemBuilder: (BuildContext context, int index) {
-              if (image_view[index].isEmpty) {
-                return Center(child: CircularProgressIndicator());
+              if (image_view.isEmpty) {
+                return Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                    ),
+                );
               } else
                 return Image.network(image_view[index], fit: BoxFit.cover);
             }));
